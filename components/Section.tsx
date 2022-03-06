@@ -32,7 +32,7 @@ const Section = () => {
                 </a>
               </div>
               <div className="image">
-                <img src="/img/pink.jpg" alt="" />
+                <img src="/img/trainer.jpeg" alt="" />
               </div>
             </div>
           </SwiperSlide>
@@ -52,7 +52,7 @@ const Section = () => {
                 </a>
               </div>
               <div className="image">
-                <img src="/img/red.jpg" alt="" />
+                <img src="/img/trainer2.jpg" alt="" />
               </div>
             </div>
           </SwiperSlide>
