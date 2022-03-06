@@ -21,16 +21,16 @@ const Register: React.FC<signUpDto> = () => {
   }
 
   const [formData, setFormData] = useState({
-    firstname: "Menre",
-    lastname: "Plouty",
-    username: "ura",
-    phone: "08033445688",
+    firstname: "",
+    lastname: "",
+    username: "",
+    phone: "",
     imgUrl: "",
-    pincode: "4000",
+    pincode: "",
 
-    email: "try@gmail.com",
-    password: "2222222",
-    address: "9 pary str, blck 7 timpty estate abuja",
+    email: "",
+    password: "",
+    address: "",
   });
 
   const {
