@@ -16,5 +16,5 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: "abayomexy@gmail.com"
           # procfile: web: node build/server.js
-        env:
-          HD_NEXT_PUBLIC_API: ${{secrets.NEXT_PUBLIC_API}}
+        # env:
+        #   HD_NEXT_PUBLIC_API: ${{secrets.NEXT_PUBLIC_API}}
