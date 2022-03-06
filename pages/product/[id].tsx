@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { productI } from "../../components/dto/product";
 import { addProducts, addToCart } from "../../redux/cart/cartSlice";
 
-const singleProduct = () => {
+const SingleProduct = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -114,4 +114,4 @@ const singleProduct = () => {
   );
 };
 
-export default singleProduct;
+export default SingleProduct;

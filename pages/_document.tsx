@@ -35,7 +35,7 @@ class MyDocument extends Document {
             href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
           />
 
-          <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+          {/* <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> */}
         </Head>
         <body>
           <Main />

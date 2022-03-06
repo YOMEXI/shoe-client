@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-const order = () => {
+const Order = () => {
   const router = useRouter();
   const [paypal, setPaypal] = useState<any>("");
   const [orderId, setOrderId] = useState<any>("");
@@ -105,4 +105,4 @@ const order = () => {
   );
 };
 
-export default order;
+export default Order;

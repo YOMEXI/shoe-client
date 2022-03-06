@@ -8,10 +8,10 @@ const about = () => {
         <div className="heading">Why Patronize Us</div>
         <div className="row">
           <div className="image">
-            <img src="/img/foodlogo.jpg" alt="" />
+            <img src="/img/nike.jpg" alt="" />
           </div>
           <div className="content">
-            <h3>Quality meals at comfort</h3>
+            <h3>Quality Shoes for comfort</h3>
             <p>
               {" "}
               error eveniet esse, sequi ipsam dignissimos delectus deserunt.

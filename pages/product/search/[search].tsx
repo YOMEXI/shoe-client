@@ -20,7 +20,7 @@ const Search = () => {
       } catch (error) {}
     };
     Search();
-  }, [router, pageIndex]);
+  }, [router, pageIndex, searchText]);
 
   const prev = (num: number) => {
     if (num < 1) {

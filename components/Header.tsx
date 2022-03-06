@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import { DefaultRootState, useDispatch, useSelector } from "react-redux";
@@ -7,7 +8,7 @@ import { logout } from "../utils/alerts";
 
 export const Header = () => {
   const auth = useSelector((state: any) => state.auth);
-  const { loading, success, error, user } = auth;
+  const { user } = auth;
 
   const router = useRouter();
 
@@ -24,10 +25,7 @@ export const Header = () => {
 
   const dispatch = useDispatch();
 
-  const [search, useSearch] = useState(false);
-  const clickSearch = () => {
-    useSearch(!search);
-  };
+  const [search, Searching] = useState(false);
 
   useEffect(() => {
     dispatch(getTotals(""));
@@ -38,35 +36,48 @@ export const Header = () => {
   return (
     <>
       <header>
-        <a className="logo" href="/">
-          <i className="fas fa-shoe-prints"></i>Restify
-        </a>
+        <Link href="/">
+          <a className="logo">
+            <i
+              className="fas fa-shoe-prints"
+              style={{ marginRight: "10px" }}
+            ></i>
+            Footil
+          </a>
+        </Link>
         <nav
           className={navBar ? "navbar active" : "navbar "}
           onClick={menuClick}
         >
           {user && (
             <>
-              <a href="/" className="active ">
-                Home
-              </a>
-              <a href="#" className="" onClick={() => logout()}>
-                Log Out
-              </a>
+              <Link href="/">
+                <a>Home</a>
+              </Link>
+              <Link href="/">
+                <a href="#" className="" onClick={() => logout()}>
+                  Log Out
+                </a>
+              </Link>
               {user?.user?.role === "admin" && (
-                <a href="/product/upload">Upload Products</a>
+                <Link href="/product/upload">
+                  <a className="" onClick={() => logout()}>
+                    Upload Products
+                  </a>
+                </Link>
               )}
             </>
           )}
+
+          <Link href="/product/about">
+            <a>About</a>
+          </Link>
+
           {!user && (
             <>
-              <a href="/product/about" className="">
-                About
-              </a>
-
-              <a href="/auth/register" className="">
-                Sign-In/Sign-Up
-              </a>
+              <Link href="/auth/register">
+                <a>Sign-In/Sign-Up</a>
+              </Link>
             </>
           )}
         </nav>
@@ -79,14 +90,18 @@ export const Header = () => {
           <i
             className="fas fa-search"
             id="search-icon"
-            onClick={clickSearch}
+            onClick={() => Searching(!search)}
           ></i>
-          <a className="fas fa-heart" href="#"></a>
-          <a className="fas fa-shopping-cart" href="/product/cart">
-            <span className="cart-position">
-              <p>{cartTotalQuantity}</p>
-            </span>
-          </a>
+          <Link href="#">
+            <a className="fas fa-heart"></a>
+          </Link>
+          <Link href="/product/cart">
+            <a className="fas fa-shopping-cart">
+              <span className="cart-position">
+                <p>{cartTotalQuantity}</p>
+              </span>
+            </a>
+          </Link>
         </div>
       </header>
       <form className={search ? "search-form active" : "search-form"}>
@@ -106,7 +121,7 @@ export const Header = () => {
         <i
           className="fas fa-times"
           id="close"
-          onClick={() => useSearch(false)}
+          onClick={() => Searching(false)}
         ></i>
       </form>
     </>
