@@ -1,7 +1,7 @@
 import axios from "axios";
 import Head from "next/head";
 import Router from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
@@ -13,6 +13,7 @@ import { RootState } from "../../redux/store";
 import { ToastSuccess } from "../../utils/alerts";
 
 const Cart = () => {
+  const [loading, setloading] = useState(false);
   const cart = useSelector((state: RootState) => state.cart.cartItems);
   const { cartTotalAmount, cartTotalQuantity } = useSelector(
     (state: RootState) => state.cart
@@ -42,14 +43,18 @@ const Cart = () => {
   });
 
   const createOrder = async () => {
+    setloading(true);
     const { data } = await axios.post(`/api/order/create`, {
       c,
       cartTotalAmount: TotalAmount,
     });
 
     if (data) {
-      Router.push("/product/order");
+      setloading(false);
       ToastSuccess("order created");
+      setTimeout(() => {
+        Router.push("/product/order");
+      }, 2000);
     } else {
       toast.error("Order creatiom errr");
     }
@@ -111,7 +116,7 @@ const Cart = () => {
             </p>
 
             <a onClick={createOrder} style={{ cursor: "pointer" }}>
-              Create Order
+              {loading ? "Creating Order" : "Create Order"}
             </a>
           </div>
         </div>

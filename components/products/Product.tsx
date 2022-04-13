@@ -18,7 +18,8 @@ const Products = ({ cat, filters, sort }: any) => {
         const { data } = await axios.get(
           cat
             ? `/api/product?categories=${cat}&page=${pageIndex}`
-            : `/api/product?page=${pageIndex}`
+            : `/api/product?page=${pageIndex}`,
+          { withCredentials: true }
         );
 
         setProducts(data);
